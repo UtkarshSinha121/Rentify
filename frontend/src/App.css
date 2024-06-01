@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.show-bg{
+  background-image: url(./image/showbg.jpg);
+  background-size: cover;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.signupbg{
+  background-image: url(./image/signupbg.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+.loginbg{
+  background-image: url(./image/signupbg.jpg);
+  background-size: cover;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.head{
+  margin-left: 80px;
+  /* margin-top: 50px; */
+  font-size: 80px;
+  font-weight: bolder;
+  color: rgb(20, 20, 107);
+  text-shadow: -4px 4px black;
+}
+.head3{
+ margin-left: 80px;
+ font-size: 40px;
+ color:white;
+ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.head4{
+  margin-left: 80px;
+  /* margin-right: 10px; */
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.homebg{
+  background-image: url(./image//homebg.jpg);
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+.button-clr{
+  background-color: rgb(16, 16, 77);
+  color: white;
+  box-shadow: 1px 1px 5px 1px white;
+}
+button.button-clr:hover{
+  background-color: rgb(33, 33, 125);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.button{
+  margin-left: 200px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.logo{
+  font-family:'Lobster' ;
+  color: white;
+  font-size: 30px;
+ }
