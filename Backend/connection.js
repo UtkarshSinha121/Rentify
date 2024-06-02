@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config({path: '../.env'});
 
-const url ='mongodb+srv://utkarshsinha:utkarsh121@cluster0.fejcptg.mongodb.net/Rentify?retryWrites=true&w=majority&appName=Cluster0'
+const url = process.env.MONGODB_URL;
 mongoose.connect(url)
 .then((result) => {
     console.log('Connected to Database');

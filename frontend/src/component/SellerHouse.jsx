@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import useUserContext from '../UserContext';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 
 const SellerHouse = () => {
+
+    const navigate = useNavigate();
     const [houseData, setHouseData] = useState([]);
     const {currentUser} = useUserContext();
 
@@ -22,9 +26,28 @@ const SellerHouse = () => {
         }
        
     };
+    const deleteHouse = async  (id) =>{
+        console.log(id);
+        //pass alert before deleting
+        const c =  window.confirm('Are you sure you want to delete this post? ');
+        if(c===true ){
+        const res = await  fetch('http://localhost:5000/addhouse/delete/'+id, {method:'DELETE'});
+        if(res.status === 200){
+            // fetchSellerData();
+            toast.success('House details deleted successfully')
+        } 
+      }
+      else 
+      {
+        toast.error('House details not deleted')
+      }
+      }
     useEffect(() => {
         fetchSellerData();
-    }, []);
+    }, [deleteHouse]);
+
+    
+    
 
     const displayHouseData = () => {
         if(houseData.length === 0){
@@ -42,6 +65,9 @@ const SellerHouse = () => {
                      <h4>₹{house.price}</h4>
                      <p>{house.location}</p>
                      <p>{house.contact}</p>
+                     <p>{house.ownername}</p>
+                        <i style={{color:'red'}} onClick={()=>{deleteHouse(house._id)}} class="fa-solid fa-trash-can mx-3" title='Delete'></i>
+                     <i style={{color:'blue'}} onClick={()=>{navigate('/edit/'+house._id)}} class="fa-regular fa-pen-to-square" title='Edit'></i>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
 import Header from "./Header";
+import useUserContext from "../UserContext";
 
 const SignupSchema = Yup.object().shape({
   firstname: Yup.string()
@@ -23,6 +24,8 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string().min(8, "Too Short").required("Required"),
 });
 const Signup = () => {
+
+  const {loggedIn}= useUserContext();
   const navigate = useNavigate();
 
   const [selImage, setselImage] = useState("");
@@ -38,6 +41,14 @@ const Signup = () => {
     },
 
     onSubmit: async (values) => {
+      if (loggedIn) {
+        Swal.fire({
+          icon: "warning",
+          title: "Already Logged In",
+          text: "You are already logged in",
+        });
+        return;
+      }
       // values.avatar = selImage;
       console.log(values);
 

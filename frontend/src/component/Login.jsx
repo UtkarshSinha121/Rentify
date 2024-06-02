@@ -12,9 +12,10 @@ const loginSchema = Yup.object().shape({
 });
 
 const Login = () => {
+
   const navigate = useNavigate();
 
-  const { setloggedIn, setcurrentUser } = useUserContext();
+  const {loggedIn, setloggedIn, setcurrentUser } = useUserContext();
 
   // initializing formik
   const loginForm = useFormik({
@@ -24,6 +25,14 @@ const Login = () => {
     },
 
     onSubmit: async (values) => {
+       if(loggedIn){
+        Swal.fire({
+          icon: "warning",
+          title: "Already Logged In",
+          text: "You are already logged in",
+        });
+        return;
+      }
       console.log(values);
 
       const res = await fetch("http://localhost:5000/user/authenticate", {

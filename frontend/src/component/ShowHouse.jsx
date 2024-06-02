@@ -68,17 +68,18 @@ const ShowHouse = () => {
             </p>
             <h5>₹{house.price}/Month</h5>
             <p className="text-secondary">{house.location}</p>
-            <button
+            <i style={{color:'blue'}} onClick={()=>{navigate('/view/'+house._id)}} class="fa-regular fa-pen-to-square" title='Edit'></i>
+            {/* <button
               className="btn btn-primary rounded-4 w-100 mb-2 "
               onClick={() => displayContact(house._id)}
             >
               View Details
-            </button>
-            {contact && houseId === house._id ? <div>
+            </button> */}
+            {/* {contact && houseId === house._id ? <div>
               <h6 className="fw-bold">Contact Owner</h6>
               <p className="text-secondary">Owner Name : {house.ownername}</p>
               <p className="text-secondary">Contact Number : {house.contact}</p>
-            </div> : null}
+            </div> : null} */}
           </div>
         </div>
       </div>
