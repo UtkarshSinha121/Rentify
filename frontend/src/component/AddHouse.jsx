@@ -33,7 +33,8 @@ const AddHouse = () => {
           furnishing : '',
           contact : '',
           ownername : '',
-          userid :currentUser._id
+          userid :currentUser._id,
+          email: currentUser.email
       
         },
     
@@ -102,7 +103,7 @@ const AddHouse = () => {
             <input placeholder='Contact Number' className="form-control   rounded-3" type="number" name="contact"  onChange={addhouseForm.handleChange} value={addhouseForm.values.contact} />
             <p className='error-label'>{addhouseForm.touched.type ? addhouseForm.errors.type : ''}</p>
             <select class="form-control  rounded-3"  aria-label="Default select example" name='type' onChange={addhouseForm.handleChange} value={addhouseForm.values.type}  >
-                        <option selected>Select House Type</option>
+                        <option selected value="">Select House Type</option>
                         <option value="1BHK">1BHK</option>
                         <option value="2BHK">2BHK</option>
                         <option value="3BHK">3BHK</option>
@@ -120,6 +121,7 @@ const AddHouse = () => {
             </div>
             </div>
             <div className='d-flex justify-content-center'>
+              
             <button type='submit'  className="btn btn-primary w-75  mt-2 rounded-3">
               Add House
             </button>

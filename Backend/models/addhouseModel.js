@@ -7,7 +7,8 @@ const mySchema = new Schema({
     furnishing : String,
     contact : String,
     ownername : String,
-    userid : String
+    userid : String,
+    email : String
 });
 
 module.exports = model('house', mySchema);
