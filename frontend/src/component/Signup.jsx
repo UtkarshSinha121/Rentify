@@ -28,7 +28,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 const checkAvailbility = async (email) => {
-  const res = await fetch(`http://localhost:5000/user/check/${email}`,
+  const res = await fetch(`https://rentify-g3b1.onrender.com/user/check/${email}`,
     {
       method: "GET",
       headers: {
@@ -76,7 +76,7 @@ const Signup = () => {
 
 
       //sending request to backend
-      const res = await fetch("http://localhost:5000/user/add", {
+      const res = await fetch("https://rentify-g3b1.onrender.com/user/add", {
         method: "POST",
         body: JSON.stringify(values),
         headers: {

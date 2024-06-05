@@ -37,7 +37,7 @@ const ShowHouse = () => {
   );
 
   const fetchHouseData = async () => {
-    const res = await fetch("http://localhost:5000/addhouse/getall");
+    const res = await fetch("https://rentify-g3b1.onrender.com/addhouse/getall");
     console.log(res.status);
     if (res.status === 200) {
       const data = await res.json();
@@ -90,7 +90,7 @@ const ShowHouse = () => {
         <div className="card ">
           <div className="card-header">
             <img
-              src={"http://localhost:5000/" + house.image}
+              src={"https://rentify-g3b1.onrender.com/" + house.image}
               width={230}
               height={210}
               style={{ overflow: "hidden" }}

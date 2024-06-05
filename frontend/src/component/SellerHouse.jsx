@@ -12,7 +12,7 @@ const SellerHouse = () => {
     const {currentUser} = useUserContext();
 
     const fetchSellerData = async () => {
-        const res = await fetch('http://localhost:5000/addhouse/seller/'+currentUser._id,
+        const res = await fetch('https://rentify-g3b1.onrender.com/addhouse/seller/'+currentUser._id,
            {
             method: 'GET',
             headers: {
@@ -31,7 +31,7 @@ const SellerHouse = () => {
         //pass alert before deleting
         const c =  window.confirm('Are you sure you want to delete this post? ');
         if(c===true ){
-        const res = await  fetch('http://localhost:5000/addhouse/delete/'+id, {method:'DELETE'});
+        const res = await  fetch('https://rentify-g3b1.onrender.com/addhouse/delete/'+id, {method:'DELETE'});
         if(res.status === 200){
             // fetchSellerData();
             toast.success('House details deleted successfully')
@@ -58,7 +58,7 @@ const SellerHouse = () => {
             <div className='col-md-3 '>
                 <div className="card ">   
                     <div className="card-header">
-                    <img src={"http://localhost:5000/"+house.image} width={230} height={210} style={{overflow:'hidden'}} />
+                    <img src={"https://rentify-g3b1.onrender.com/"+house.image} width={230} height={210} style={{overflow:'hidden'}} />
                     </div>
                     <div className="card-body">
                     <p>{house.type} Flat | {house.furnishing}</p>

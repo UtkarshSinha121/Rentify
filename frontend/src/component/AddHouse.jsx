@@ -44,7 +44,7 @@ const AddHouse = () => {
           console.log(values);
           
           //sending request to backend
-          const res = await fetch('http://localhost:5000/addhouse/add', {
+          const res = await fetch('https://rentify-g3b1.onrender.com/addhouse/add', {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
@@ -77,7 +77,7 @@ const AddHouse = () => {
         const fd = new FormData();
         fd.append('myfile', file);
     
-        const res = await fetch('http://localhost:5000/util/uploadfile', {
+        const res = await fetch('https://rentify-g3b1.onrender.com/util/uploadfile', {
           method: 'POST',
           body: fd
         });

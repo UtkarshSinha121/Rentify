@@ -26,7 +26,7 @@ const EditHouse = () => {
      const [Data, setData] = useState([]);
 
      const fetchHouseData = async () => {
-        const res = await fetch('http://localhost:5000/addhouse/get/'+id,
+        const res = await fetch('https://rentify-g3b1.onrender.com/addhouse/get/'+id,
               {
                 method: 'GET',
                 headers: {
@@ -62,7 +62,7 @@ const EditHouse = () => {
         
             console.log(values);
              //sending request to backend
-           const res = await fetch("http:/localhost:5000/addhouse/update"+id,
+           const res = await fetch("https://rentify-g3b1.onrender.com/addhouse/update"+id,
            {method:'PUT',
             body:JSON.stringify(values),
             headers:{
@@ -91,7 +91,7 @@ const EditHouse = () => {
          const fd = new FormData();
          fd.append('myfile', file);
      
-         const res = await fetch('http://localhost:5000/util/uploadfile', {
+         const res = await fetch('https://rentify-g3b1.onrender.com/util/uploadfile', {
            method: 'POST',
            body: fd
          });

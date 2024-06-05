@@ -35,7 +35,7 @@ const Login = () => {
       }
       console.log(values);
 
-      const res = await fetch("http://localhost:5000/user/authenticate", {
+      const res = await fetch("https://rentify-g3b1.onrender.com/user/authenticate", {
         method: "POST",
         body: JSON.stringify(values),
         headers: {

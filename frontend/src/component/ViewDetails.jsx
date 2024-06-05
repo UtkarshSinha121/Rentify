@@ -33,7 +33,7 @@ const ViewDetails = () => {
     
 
   const fetchHouseData = async () => {
-    const res = await fetch('http://localhost:5000/addhouse/get/'+id,
+    const res = await fetch('https://rentify-g3b1.onrender.com/addhouse/get/'+id,
           {
             method: 'GET',
             headers: {
@@ -64,7 +64,7 @@ const ViewDetails = () => {
           <div className="card-header rounded-4 ">
             <img
               className="rounded-4"
-              src={"http://localhost:5000/" + house.image}
+              src={"https://rentify-g3b1.onrender.com/" + house.image}
               width={430}
               height={410}
               style={{ overflow: "hidden" }}
