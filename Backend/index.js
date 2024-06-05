@@ -9,7 +9,7 @@ const port = 5000;
 const cors = require('cors');
 
 app.use(cors({
-    origin: ['https://rentify-find-home-for-rent.vercel.app/'],
+    origin: ['https://rentify-find-home-for-rent.vercel.app'],
 }));
 app.use(express.json());
 
