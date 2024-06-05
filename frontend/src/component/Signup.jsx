@@ -15,7 +15,10 @@ const SignupSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
+  email: Yup.string().email("Invalid email").required("Required")
+  .test("email", "Email already exists", function(email) {
+    return checkAvailbility(email);
+  }),
   contactnumber: Yup.string()
     .min(10, "Too Short")
     .max(10, "Too Long")
@@ -23,6 +26,22 @@ const SignupSchema = Yup.object().shape({
   usertype: Yup.string().required("Required"),
   password: Yup.string().min(8, "Too Short").required("Required"),
 });
+
+const checkAvailbility = async (email) => {
+  const res = await fetch(`http://localhost:5000/user/check/${email}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  console.log(res.status);
+  if (res.status === 200) {
+    return true;
+  } else {
+    return false;
+  }
+};
 const Signup = () => {
 
   const {loggedIn}= useUserContext();
@@ -51,6 +70,10 @@ const Signup = () => {
       }
       // values.avatar = selImage;
       console.log(values);
+      
+      
+
+
 
       //sending request to backend
       const res = await fetch("http://localhost:5000/user/add", {

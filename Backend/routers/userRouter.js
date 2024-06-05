@@ -26,4 +26,20 @@ router.post('/authenticate',(req, res)=>{
     })
 })
 
+//check if user is alraedy present using eamil
+router.get('/check/:email',(req, res)=>{
+    Model.findOne({email: req.params.email})
+    .then((result)=>{
+        if(result.length === 0)
+            res.status(200).json();
+        else
+            res.status(400).json();
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.status(500).json(err);
+    })
+}
+)
+
 module.exports = router;
